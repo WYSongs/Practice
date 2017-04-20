@@ -1,0 +1,135 @@
+<!--index.wxml-->
+<view class="container">
+ <view class="head">
+		<input placeholder="找主播...'" class="input"/>
+	</view>
+
+  <view class="nav">
+    <view class="nav-list {{navIndex==0?'nav-active':''}}" bindtap="touchChange" data-index='0' hover hover-class="hoveractive">热门</view>
+    <view class="nav-list  {{navIndex==1?'nav-active':''}}" bindtap="touchChange" data-index='1' hover hover-class="hoveractive">推荐</view>
+    <view class="nav-list  {{navIndex==2?'nav-active':''}}" bindtap="touchChange" data-index='2' hover hover-class="hoveractive">关注</view>
+  </view>
+  
+  <!--<swiper class="nav">
+    <block wx:for="{{lists}}">
+      <swiper-item class="nav-swiper">
+        <view class="nav-list">{{item.title}}</view>
+      </swiper-item>
+    </block>
+  </swiper>-->
+ 
+<text class="load">下拉刷新</text>
+<view class="content">
+  
+   
+      <swiper style="height:480px" bindchange="swiperChange" current="{{navIndex}}" >
+  <block>
+       <!--热门 -->
+     
+       <swiper-item style="overflow-y:scroll">
+            <scroll-view scroll-y style="height: 1000rpx;" bindscrolltoupper="bindDownLoad"  scroll-with-animation>
+          <view>
+            <!--<button loading class='fecthtop'>正在加载</button>-->
+         
+             <view class="items">
+               
+                <view class="items-list" wx:for="{{lists}}">
+                  <view class="img-box">
+                      <image src="{{item.img}}" class="img"></image>
+                  </view>
+                    <text class="font">{{item.title}}</text>
+                    <text class="people">{{item.people}}人</text>
+                </view>
+           
+           </view>
+                  <button class='fecthbot' bindtap="clickbot">点击加载更多</button> 
+            </view>     
+         </scroll-view>
+      </swiper-item>
+      
+  </block>
+<block>
+       <!--推荐 -->
+     
+       <swiper-item style="overflow-y:scroll">
+            <scroll-view scroll-y style="height: 1000rpx;" bindscrolltoupper="bindDownLoad"  scroll-with-animation>
+          <view>
+            <!--<button loading class='fecthtop'>正在加载</button>-->
+         
+             <view class="items">
+               
+                <view class="items-list" wx:for="{{lists}}">
+                  <view class="img-box">
+                      <image src="{{item.img}}" class="img"></image>
+                  </view>
+                    <text class="font">{{item.title}}</text>
+                    <text class="people">{{item.people}}人</text>
+                </view>
+           
+           </view>
+                  <button class='fecthbot' bindtap="clickbot">点击加载更多</button> 
+            </view>     
+         </scroll-view>
+      </swiper-item>
+      
+</block>
+<block>
+       <!--关注 -->
+     
+       <swiper-item style="overflow-y:scroll">
+            <scroll-view scroll-y style="height: 1000rpx;" bindscrolltoupper="bindDownLoad"  scroll-with-animation>
+          <view>
+            <!--<button loading class='fecthtop'>正在加载</button>-->
+         
+             <view class="items">
+               
+                <view class="items-list" wx:for="{{lists}}">
+                  <view class="img-box">
+                      <image src="{{item.img}}" class="img"></image>
+                  </view>
+                    <text class="font">{{item.title}}</text>
+                    <text class="people">{{item.people}}人</text>
+                </view>
+           
+           </view>
+                  <button class='fecthbot' bindtap="clickbot">点击加载更多</button> 
+            </view>     
+         </scroll-view>
+      </swiper-item>
+      
+</block>   
+  
+
+
+
+     </swiper>
+  </view>
+
+ 
+
+
+
+  <view class="foot">
+    <navigator class="foot-list foot-active" url="/pages/index/index">
+      <text class="iconfont icon-shouye-shouye"></text>
+      <text class="foot-font">首页</text>
+    </navigator>
+    <navigator class="foot-list" url="/pages/index/index">
+      <text class="iconfont icon-fangdajing"></text>
+       <text class="foot-font">搜索</text>
+    </navigator>
+    <navigator class="foot-list" url="/pages/index/index">
+      <text class="iconfont icon-zhaoxiangji"></text>
+       <text class="foot-font">直播</text>
+    </navigator>
+    <navigator class="foot-list" url="/pages/index/index">
+      <text class="iconfont icon-tuichu"></text>
+      <text class="foot-font">消息</text>
+    </navigator>
+    <navigator class="foot-list" url="/pages/index/index">
+      <text class="iconfont icon-wode"></text>
+      <text class="foot-font">我的</text>
+    </navigator>
+   
+  </view>
+</view>
